@@ -65,10 +65,11 @@
   outline: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   header {
     flex-direction: column;
-    place-items: center;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
   }
 
@@ -91,6 +92,7 @@
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
+  background-image: url("/assets/background-mars.webp");
 }
 
 .grid-row {
@@ -100,15 +102,20 @@
 .grid-cell {
   width: 30px;
   height: 30px;
-  border: 1px solid #aaa;
+  border: 1px solid #474747;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
 }
 
 .rover-icon {
   display: inline-block;
+  margin: auto;
+}
+
+.obstacle-icon {
+  display: inline-block;
+  font-size: 1.2rem;
 }
 
 .dir-N {
@@ -140,4 +147,74 @@
 
 .command-button:hover {
   background-color: #e0e0e0;
+}
+
+@keyframes blinkFade {
+  0% {
+    opacity: 0;
+  }
+  12.5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  37.5% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  62.5% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  87.5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in-out {
+  animation: blinkFade 3s ease-in-out forwards;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.modal-content {
+  background: rgb(35, 12, 12);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  border: 2px solid #c02d2d;
+  color: #c02d2d;
+  font-size: 1.4rem;
+  font-weight: bold;
+  flex-wrap: wrap;
+  width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.success {
+  width: 500px;
+  opacity: 1;
+  background: #e8fbe8;
+  color: #2e7d32;
+  border: 2px solid #81c784;
 }
