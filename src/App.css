@@ -1,18 +1,24 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
   padding: 2rem;
   text-align: center;
 }
 
-.rover-container {
+.rover-panel {
   background-color: #f4f4f4;
   padding: 2rem;
   border-radius: 12px;
   max-width: 400px;
-  margin: 2rem auto;
+  margin: 0rem auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
+}
+
+.rover-panel-input {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
 }
 
 .rover-title {
@@ -26,4 +32,76 @@
   font-weight: bold;
   margin: 0.5rem 0;
   color: #555;
+}
+
+.rover-input {
+  width: 50%;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.rover-input:focus {
+  border-color: #646cff;
+  outline: none;
+}
+
+@media (max-width: 1000px) {
+  header {
+    flex-direction: column;
+    place-items: center;
+    gap: 20px;
+  }
+
+  .rover-panel-input,
+  .rover-panel {
+    width: 80%;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  border: 2px solid #333;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.grid-cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.rover-icon {
+  display: inline-block;
+}
+
+.dir-N {
+  transform: rotate(0deg);
+}
+
+.dir-E {
+  transform: rotate(90deg);
+}
+
+.dir-S {
+  transform: rotate(180deg);
+}
+
+.dir-O {
+  transform: rotate(-90deg);
 }
