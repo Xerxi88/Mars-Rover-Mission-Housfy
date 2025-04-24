@@ -31,6 +31,7 @@ body {
 
 header {
   display: flex;
+  justify-content: space-between;
 }
 
 h1 {
@@ -39,15 +40,14 @@ h1 {
 }
 
 section {
-  width: 50%;
+  width: 70%;
 }
 
 button {
   border-radius: 8px;
-  margin-top: 1rem;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.6em;
+  font-size: 1.5em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;

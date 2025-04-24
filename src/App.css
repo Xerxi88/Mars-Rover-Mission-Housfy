@@ -9,6 +9,7 @@
   padding: 2rem;
   border-radius: 12px;
   max-width: 400px;
+  max-height: 180px;
   margin: 0rem auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
@@ -16,9 +17,9 @@
 
 .rover-panel-input {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: start;
-  gap: 20px;
+  gap: 40px;
 }
 
 .rover-title {
@@ -26,11 +27,26 @@
   margin-bottom: 1rem;
   color: #333;
 }
+.rover-commands {
+  max-width: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rover-secuency {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0.5rem 0 2rem 0rem;
+  color: #11db1b;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
 
 .rover-info {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0rem;
   color: #555;
 }
 
@@ -59,6 +75,11 @@
   .rover-panel-input,
   .rover-panel {
     width: 80%;
+  }
+  .rover-commands {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 
@@ -104,4 +125,19 @@
 
 .dir-O {
   transform: rotate(-90deg);
+}
+
+.command-button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  margin: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.command-button:hover {
+  background-color: #e0e0e0;
 }

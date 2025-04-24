@@ -1,5 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Direction, DirectionLabels, type Rover } from "../types/types";
+import {
+  ArrowForward,
+  ArrowLeft,
+  ArrowRight,
+  BackspaceIcon,
+  ClearIcon,
+  SecuencyForward,
+  SecuencyLeft,
+  SecuencyRight,
+} from "../icons/Icons";
+import CommandButton from "./CommandButton";
 
 const Rover = () => {
   const [rover, setRover] = useState<Rover>({
@@ -87,18 +98,54 @@ const Rover = () => {
     return <div className="grid">{rows}</div>;
   };
 
+  const commandIcons: Record<string, React.ReactNode> = {
+    f: <SecuencyForward />,
+    l: <SecuencyLeft />,
+    r: <SecuencyRight />,
+  };
+
   return (
     <>
       <header>
         <section className="rover-panel-input">
-          <input
-            type="text"
-            value={commands}
-            onChange={(e) => setCommands(e.target.value)}
-            placeholder="Introduce comandos: f, l, r"
-            className="rover-input"
-          />
-          <button onClick={handleCommands}>Ejecutar comandos</button>
+          <div className="rover-commands">
+            <p className="rover-secuency">
+              Secuencia:
+              {commands.split("").map((cmd, index) => (
+                <span key={index}>{commandIcons[cmd]}</span>
+              ))}
+            </p>
+            <div className="command-buttons">
+              <CommandButton
+                command="l"
+                icon={<ArrowLeft />}
+                onClick={(cmd) => setCommands((prev) => prev + cmd)}
+              />
+              <CommandButton
+                command="f"
+                icon={<ArrowForward />}
+                onClick={(cmd) => setCommands((prev) => prev + cmd)}
+              />
+              <CommandButton
+                command="r"
+                icon={<ArrowRight />}
+                onClick={(cmd) => setCommands((prev) => prev + cmd)}
+              />
+              <CommandButton
+                command=""
+                icon={<BackspaceIcon />}
+                onClick={() => setCommands((prev) => prev.slice(0, -1))}
+              />
+              <CommandButton
+                command=""
+                icon={<ClearIcon />}
+                onClick={() => setCommands("")}
+              />
+            </div>
+            <button onClick={handleCommands} disabled={commands ? false : true}>
+              {commands ? "Ejecutar comandos" : "Faltan comandos"}
+            </button>
+          </div>
         </section>
         <section className="rover-panel">
           <h2 className="rover-title">🛰️ Estado del Rover 🛰️</h2>
