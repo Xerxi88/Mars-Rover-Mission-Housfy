@@ -1,10 +1,10 @@
 export type Direction = 'N'|'S'|'E'|'O'
 
 export enum DirectionLabels {
-    N = "Norte",
-    S = "Sur",
-    E = "Este",
-    O = "Oeste",
+    N = "Nord",
+    S = "Sud",
+    E = "Est",
+    O = "Oest",
   };
 
 export interface Position {

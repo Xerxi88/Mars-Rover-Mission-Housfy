@@ -1,5 +1,5 @@
 import "./App.css";
-import Rover from "./components/Rover";
+import Rover from "./components/organism/Rover";
 
 function App() {
   return (
